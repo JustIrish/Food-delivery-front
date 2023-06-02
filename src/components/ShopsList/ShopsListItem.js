@@ -1,12 +1,14 @@
+import { ListItem, Text } from './ShopsList.styled';
+
 const ShopsListItem = ({ name, products, onClick }) => {
   return (
-    <li
+    <ListItem
       onClick={() => {
         onClick(products);
       }}
     >
-      <p> {name}</p>
-    </li>
+      <Text> {name}</Text>
+    </ListItem>
   );
 };
 
