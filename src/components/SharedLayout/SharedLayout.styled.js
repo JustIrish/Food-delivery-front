@@ -10,11 +10,11 @@ export const Header = styled.header`
   left: 0;
   position: fixed;
   width: 100%;
-  /* z-index: 1000; */
+  z-index: 1000;
   padding: 16px;
   background-color: #153c3c;
 `;
 
 export const Main = styled.main`
-  padding: 60px 16px;
+  padding: 100px 16px;
 `;

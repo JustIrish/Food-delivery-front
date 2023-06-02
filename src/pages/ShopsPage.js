@@ -1,8 +1,30 @@
+import { useState, useEffect } from 'react';
+
+import { fetchShops } from 'API/fetchShops';
+import ShopsList from 'components/ShopsList/ShopsList';
+import ProductsList from 'components/ProductsList/ProductsList';
+
 const ShopsPage = () => {
+  const [shops, setShops] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
+
+  useEffect(() => {
+    fetchShops()
+      .then(data => setShops(data))
+      .catch(error => console.log(error));
+  }, []);
+
+  const selectShopHandler = products => {
+    setSelectedProducts(products);
+  };
+
   return (
-    <div style={{ paddingTop: '30px', textAlign: 'center' }}>
-      <h1 style={{ paddingBottom: '30px' }}>Shops Page</h1>
-    </div>
+    <>
+      <ShopsList shopsArr={shops} onClick={selectShopHandler} />
+      {selectedProducts.length > 0 && (
+        <ProductsList productsArr={selectedProducts} />
+      )}
+    </>
   );
 };
 

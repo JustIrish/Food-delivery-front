@@ -7,7 +7,7 @@ export const Nav = styled.nav`
 `;
 
 export const StyledLink = styled(NavLink)`
-  min-width: 180px;
+  min-width: 160px;
   text-align: center;
   padding: 8px 16px;
   border-radius: 4px;
