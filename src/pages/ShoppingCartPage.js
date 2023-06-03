@@ -1,9 +1,7 @@
+import ContactsForm from 'components/ContactsForm/ContactsForm';
+
 const ShoppingCartPage = () => {
-  return (
-    <div style={{ paddingTop: '30px', textAlign: 'center' }}>
-      <h1 style={{ paddingBottom: '30px' }}>Shopping Cart Page</h1>
-    </div>
-  );
+  return <ContactsForm />;
 };
 
 export default ShoppingCartPage;

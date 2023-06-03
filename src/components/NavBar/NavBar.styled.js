@@ -10,7 +10,7 @@ export const StyledLink = styled(NavLink)`
   min-width: 150px;
   text-align: center;
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 8px;
   color: #dde4e4;
   font-weight: 500;
   background-color: #153c3c;
