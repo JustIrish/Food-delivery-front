@@ -22,6 +22,18 @@ export const Image = styled.img`
   border-radius: 8px;
 `;
 
+export const Text = styled.p`
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  padding: 8px;
+  font-weight: 600;
+  font-size: 25px;
+  color: #153c3c;
+  background-color: #f3f7f2;
+  border-radius: 8px;
+`;
+
 export const TitleWrap = styled.div`
   position: absolute;
   left: 50%;
@@ -37,7 +49,24 @@ export const TitleWrap = styled.div`
   border-radius: 8px;
 
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 20px;
   letter-spacing: -0.24px;
+`;
+
+export const BasketBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: transparent;
+  padding: 8px;
+  cursor: pointer;
+
+  scale: 1;
+  transition: scale 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &:active {
+    scale: 0.8;
+  }
 `;

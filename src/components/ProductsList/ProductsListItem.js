@@ -1,16 +1,23 @@
 import { SlBasket } from 'react-icons/sl';
 
-import { ProductsItem, Image, TitleWrap } from './ProductsList.styled';
+import {
+  ProductsItem,
+  Image,
+  Text,
+  TitleWrap,
+  BasketBtn,
+} from './ProductsList.styled';
 
-const ProductsListItem = ({ name, imageUrl }) => {
+const ProductsListItem = ({ name, imageUrl, price }) => {
   return (
     <ProductsItem>
       <Image src={imageUrl} alt={name} width="343" loading="lazy" />
+      <Text>{price}</Text>
       <TitleWrap>
         <p>{name}</p>
-        <button type="button">
+        <BasketBtn type="button">
           <SlBasket size="18" />
-        </button>
+        </BasketBtn>
       </TitleWrap>
     </ProductsItem>
   );
