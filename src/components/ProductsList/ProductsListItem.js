@@ -13,11 +13,18 @@ import {
   BasketBtn,
 } from './ProductsList.styled';
 
-const ProductsListItem = ({ id, name, imageUrl, price, description }) => {
+const ProductsListItem = ({
+  shopName,
+  id,
+  name,
+  imageUrl,
+  price,
+  description,
+}) => {
   const onBasketClick = () => {
     const order = loadFromLocalStorage('order') || [];
 
-    const obj = { id, name, imageUrl, price, description };
+    const obj = { shopName, id, name, imageUrl, price, description };
 
     saveToLocalStorage('order', [...order, obj]);
   };

@@ -4,7 +4,7 @@ const ShopsListItem = ({ name, products, onClick }) => {
   return (
     <ListItem
       onClick={() => {
-        onClick(products);
+        onClick(name, products);
       }}
     >
       <Text> {name}</Text>

@@ -9,6 +9,7 @@ import { Wrapper } from './ShopsPage.styled';
 const ShopsPage = () => {
   const [shops, setShops] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [selectedShop, setSelectedShop] = useState('');
 
   useEffect(() => {
     fetchShops()
@@ -16,15 +17,16 @@ const ShopsPage = () => {
       .catch(error => console.log(error));
   }, []);
 
-  const selectShopHandler = products => {
+  const selectShopHandler = (shopName, products) => {
     setSelectedProducts(products);
+    setSelectedShop(shopName);
   };
 
   return (
     <Wrapper>
       <ShopsList shopsArr={shops} onClick={selectShopHandler} />
       {selectedProducts.length > 0 && (
-        <ProductsList productsArr={selectedProducts} />
+        <ProductsList productsArr={selectedProducts} shopName={selectedShop} />
       )}
     </Wrapper>
   );
