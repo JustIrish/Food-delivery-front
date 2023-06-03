@@ -11,10 +11,7 @@ export const createOrder = async order => {
   return axios.post(`/api/orders`, order);
 };
 
-export const fetchOrderHistory = async (email, phone) => {
-  const response = await axios.get(`/api/orders/history`, {
-    email,
-    phone,
-  });
+export const fetchOrderHistory = async obj => {
+  const response = await axios.get(`/api/orders/history`, obj);
   return response.data;
 };

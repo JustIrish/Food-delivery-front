@@ -5,16 +5,20 @@ import ShopsList from 'components/ShopsList/ShopsList';
 import ProductsList from 'components/ProductsList/ProductsList';
 
 import { Wrapper } from './ShopsPage.styled';
+import { Loader } from 'components/Loader/Loader';
 
 const ShopsPage = () => {
   const [shops, setShops] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [selectedShop, setSelectedShop] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchShops()
       .then(data => setShops(data))
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
+      .finally(setIsLoading(false));
   }, []);
 
   const selectShopHandler = (shopName, products) => {
@@ -23,12 +27,18 @@ const ShopsPage = () => {
   };
 
   return (
-    <Wrapper>
-      <ShopsList shopsArr={shops} onClick={selectShopHandler} />
-      {selectedProducts.length > 0 && (
-        <ProductsList productsArr={selectedProducts} shopName={selectedShop} />
-      )}
-    </Wrapper>
+    <>
+      {isLoading && <Loader />}
+      <Wrapper>
+        <ShopsList shopsArr={shops} onClick={selectShopHandler} />
+        {selectedProducts.length > 0 && (
+          <ProductsList
+            productsArr={selectedProducts}
+            shopName={selectedShop}
+          />
+        )}
+      </Wrapper>
+    </>
   );
 };
 

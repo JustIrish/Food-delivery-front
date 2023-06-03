@@ -1,4 +1,5 @@
 import { SlBasket } from 'react-icons/sl';
+import { toast } from 'react-hot-toast';
 
 import {
   loadFromLocalStorage,
@@ -13,28 +14,28 @@ import {
   BasketBtn,
 } from './ProductsList.styled';
 
-const ProductsListItem = ({
-  shop,
-  id,
-  name,
-  imageUrl,
-  price,
-  description,
-}) => {
+const ProductsListItem = ({ shop, id, name, imageUrl, price, description }) => {
   const onBasketClick = () => {
     const order = loadFromLocalStorage('order') || [];
+    const product = order.find(item => item.id === id);
 
-    const obj = {
-      shop,
-      id,
-      name,
-      imageUrl,
-      price,
-      description,
-      quantity: 1,
-    };
+    if (!product) {
+      const obj = {
+        shop,
+        id,
+        name,
+        imageUrl,
+        price,
+        description,
+        quantity: 1,
+      };
 
-    saveToLocalStorage('order', [...order, obj]);
+      saveToLocalStorage('order', [...order, obj]);
+    } else {
+      order.find(item => item.id === id && (item.quantity = item.quantity + 1));
+      saveToLocalStorage('order', [...order]);
+    }
+    toast.success('Product has been added to basket!');
   };
 
   return (

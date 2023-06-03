@@ -44,7 +44,7 @@ const ShoppingCartItem = ({
         <p> {description}</p>
         <ActivityWrap>
           <QuantityWrap>
-            <Btn onClick={onDecrementClick}>
+            <Btn onClick={onDecrementClick} disabled={!quantity}>
               <MdRemove size={12} />
             </Btn>
             {actualQuantity}{' '}
