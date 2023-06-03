@@ -8,7 +8,7 @@ const phonePattern =
 
 const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
-const addressPattern = /\d{1,5}\s\w. \s(\b\w*\b\s){1,2}\w*\./;
+const addressPattern = /^\s*\S+(?:\s+\S+){2}/;
 
 export const schema = yup.object().shape({
   userName: yup
@@ -25,6 +25,6 @@ export const schema = yup.object().shape({
     .required(),
   address: yup
     .string()
-    .matches(addressPattern, 'invalid address format')
+    .matches(addressPattern, 'example: 123 West 2nd Ave')
     .required(),
 });
