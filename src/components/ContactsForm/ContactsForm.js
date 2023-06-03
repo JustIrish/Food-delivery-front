@@ -1,5 +1,6 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
+import { toast } from 'react-hot-toast';
 import { createOrder } from 'services/API/api';
 
 import {
@@ -14,9 +15,16 @@ import {
   InputStyled,
   BtnStyled,
 } from './ContactsForm.styled';
+import { Loader } from 'components/Loader/Loader';
 
 const ContactsForm = ({ totalCost }) => {
-  const handleSubmit = ({ userName, email, phone, address }, { resetForm }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (
+    { userName, email, phone, address },
+    { resetForm }
+  ) => {
+    setIsLoading(true);
     const data = loadFromLocalStorage('order');
 
     const order = {
@@ -27,10 +35,18 @@ const ContactsForm = ({ totalCost }) => {
       totalCost,
       items: data,
     };
-    createOrder(order);
 
-    resetForm();
-    removeFromLocalStorage('order');
+    try {
+      await createOrder(order);
+      toast.success('All right, your order has been shipped!');
+      resetForm();
+      removeFromLocalStorage('order');
+    } catch (error) {
+      console.error(error);
+      toast.error('Something went wrong...');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -64,7 +80,9 @@ const ContactsForm = ({ totalCost }) => {
           <ErrorMessage name="address" />
         </LabelStyled>
         <div>Total cost: {totalCost}</div>
-        <BtnStyled type="submit">Send order</BtnStyled>
+        <BtnStyled type="submit">
+          {isLoading ? <Loader /> : 'Send order'}
+        </BtnStyled>
       </FormStyled>
     </Formik>
   );
