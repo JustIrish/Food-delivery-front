@@ -24,7 +24,15 @@ const ProductsListItem = ({
   const onBasketClick = () => {
     const order = loadFromLocalStorage('order') || [];
 
-    const obj = { shopName, id, name, imageUrl, price, description };
+    const obj = {
+      shopName,
+      id,
+      name,
+      imageUrl,
+      price,
+      description,
+      quantity: 1,
+    };
 
     saveToLocalStorage('order', [...order, obj]);
   };
@@ -32,7 +40,7 @@ const ProductsListItem = ({
   return (
     <ProductsItem>
       <Image src={imageUrl} alt={name} width="343" loading="lazy" />
-      <Text>{price}</Text>
+      <Text>{price} $</Text>
       <TitleWrap>
         <p>{name}</p>
         <BasketBtn type="button" onClick={onBasketClick}>
