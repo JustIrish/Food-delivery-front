@@ -13,7 +13,7 @@ const ShoppingCartPage = () => {
 
   return (
     <Wrapper>
-      <ContactsForm totalData={total} />
+      <ContactsForm totalCost={total} />
       <ShoppingCartList getData={getTotalCosts} />
     </Wrapper>
   );

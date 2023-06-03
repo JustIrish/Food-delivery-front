@@ -6,7 +6,7 @@ const ProductsList = ({ productsArr, shopName }) => {
   return (
     <List>
       {productsArr.map(({ _id, ...props }) => (
-        <ProductsListItem key={_id} {...props} shopName={shopName} />
+        <ProductsListItem key={_id} {...props} shop={shopName} />
       ))}
     </List>
   );

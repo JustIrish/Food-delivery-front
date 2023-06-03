@@ -1,6 +1,11 @@
 // import { useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
+import { createOrder } from 'services/API/api';
 
+import {
+  loadFromLocalStorage,
+  removeFromLocalStorage,
+} from 'services/localStorage';
 import { schema } from 'common/validationSchema';
 
 import {
@@ -10,11 +15,22 @@ import {
   BtnStyled,
 } from './ContactsForm.styled';
 
-const ContactsForm = ({ totalData }) => {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values, totalData);
+const ContactsForm = ({ totalCost }) => {
+  const handleSubmit = ({ userName, email, phone, address }, { resetForm }) => {
+    const data = loadFromLocalStorage('order');
+
+    const order = {
+      name: userName,
+      email,
+      phone,
+      address,
+      totalCost,
+      items: data,
+    };
+    createOrder(order);
 
     resetForm();
+    removeFromLocalStorage('order');
   };
 
   return (
@@ -47,7 +63,7 @@ const ContactsForm = ({ totalData }) => {
           <InputStyled type="text" name="address" />
           <ErrorMessage name="address" />
         </LabelStyled>
-        <div>Total cost: {totalData}</div>
+        <div>Total cost: {totalCost}</div>
         <BtnStyled type="submit">Send order</BtnStyled>
       </FormStyled>
     </Formik>

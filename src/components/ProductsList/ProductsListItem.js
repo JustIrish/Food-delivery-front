@@ -14,7 +14,7 @@ import {
 } from './ProductsList.styled';
 
 const ProductsListItem = ({
-  shopName,
+  shop,
   id,
   name,
   imageUrl,
@@ -25,7 +25,7 @@ const ProductsListItem = ({
     const order = loadFromLocalStorage('order') || [];
 
     const obj = {
-      shopName,
+      shop,
       id,
       name,
       imageUrl,
