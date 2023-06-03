@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { fetchShops } from 'API/fetchShops';
+import { fetchShops } from 'services/API/fetchShops';
 import ShopsList from 'components/ShopsList/ShopsList';
 import ProductsList from 'components/ProductsList/ProductsList';
 
