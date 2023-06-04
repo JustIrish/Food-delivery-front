@@ -28,9 +28,13 @@ const ShopsPage = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
       <Wrapper>
-        <ShopsList shopsArr={shops} onClick={selectShopHandler} />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <ShopsList shopsArr={shops} onClick={selectShopHandler} />
+        )}
+
         {selectedProducts.length > 0 && (
           <ProductsList
             productsArr={selectedProducts}

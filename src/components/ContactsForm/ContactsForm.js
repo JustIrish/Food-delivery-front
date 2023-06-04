@@ -41,6 +41,7 @@ const ContactsForm = ({ totalCost }) => {
       toast.success('All right, your order has been shipped!');
       resetForm();
       removeFromLocalStorage('order');
+      window.location.reload();
     } catch (error) {
       console.error(error);
       toast.error('Something went wrong...');
@@ -79,7 +80,7 @@ const ContactsForm = ({ totalCost }) => {
           <InputStyled type="text" name="address" />
           <ErrorMessage name="address" />
         </LabelStyled>
-        <div>Total cost: {totalCost}</div>
+        <div>Total cost: {totalCost} $</div>
         <BtnStyled type="submit">
           {isLoading ? <Loader /> : 'Send order'}
         </BtnStyled>
