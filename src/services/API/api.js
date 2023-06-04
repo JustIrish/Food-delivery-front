@@ -12,6 +12,6 @@ export const createOrder = async order => {
 };
 
 export const fetchOrderHistory = async obj => {
-  const response = await axios.get(`/api/orders/history`, obj);
+  const response = await axios.post(`/api/orders/history`, obj);
   return response.data;
 };
