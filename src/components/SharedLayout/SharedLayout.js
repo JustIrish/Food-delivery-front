@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
+import { RotatingLines } from 'react-loader-spinner';
 
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Layout, Header, Main } from './SharedLayout.styled';
@@ -12,7 +13,25 @@ const SharedLayout = () => {
       <Header>
         <NavBar />
       </Header>
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '200px',
+            }}
+          >
+            <RotatingLines
+              strokeColor="#84A17D"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="96"
+              visible={true}
+            />
+          </div>
+        }
+      >
         <Main>
           <Outlet />
         </Main>
