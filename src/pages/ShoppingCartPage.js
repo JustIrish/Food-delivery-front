@@ -2,7 +2,7 @@ import ContactsForm from 'components/ContactsForm/ContactsForm';
 import ShoppingCartList from 'components/ShoppingCartList/ShoppingCartList';
 import { useState } from 'react';
 
-import { Wrapper } from './ShopsPage.styled';
+import { Wrapper } from './Pages.styled';
 
 const ShoppingCartPage = () => {
   const [total, setTotal] = useState(null);
