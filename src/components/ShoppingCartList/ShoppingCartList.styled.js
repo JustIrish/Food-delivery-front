@@ -38,6 +38,10 @@ export const DescWrap = styled.div`
   letter-spacing: -0.24px;
 `;
 
+export const ProductTitle = styled.p`
+  font-weight: 600;
+`;
+
 export const ActivityWrap = styled.div`
   display: flex;
   align-items: center;

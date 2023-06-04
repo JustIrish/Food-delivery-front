@@ -6,6 +6,7 @@ import {
   ListItem,
   Image,
   DescWrap,
+  ProductTitle,
   ActivityWrap,
   QuantityWrap,
   Btn,
@@ -39,7 +40,7 @@ const ShoppingCartItem = ({
     <ListItem>
       <Image src={imageUrl} alt={name} width="100" loading="lazy" />
       <DescWrap>
-        <p> {name}</p>
+        <ProductTitle> {name}</ProductTitle>
 
         <p> {description}</p>
         <ActivityWrap>
