@@ -4,7 +4,7 @@ import { fetchShops } from 'services/API/api';
 import ShopsList from 'components/ShopsList/ShopsList';
 import ProductsList from 'components/ProductsList/ProductsList';
 
-import { Wrapper } from './ShopsPage.styled';
+import { Wrapper } from './Pages.styled';
 import { Loader } from 'components/Loader/Loader';
 
 const ShopsPage = () => {
