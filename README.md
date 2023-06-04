@@ -2,7 +2,7 @@
 
 ## On this website you have the opportunity to order food from your favorite stores! And also you can review your order history.
 
-![Interface](./src/images/screen-food)
+![Interface](./src/images/screen-food.jpg)
 
 ## <ul>Main functionality:</ul>
 <li>You choose the products you like and they are added to the shopping cart</li>
