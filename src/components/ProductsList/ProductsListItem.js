@@ -18,10 +18,11 @@ const ProductsListItem = ({ shop, id, name, imageUrl, price, description }) => {
   const onBasketClick = () => {
     const order = loadFromLocalStorage('order') || [];
 
-    if (order[0].shop !== shop) {
+    if (order.lenghts > 0 && order[0].shop !== shop) {
       toast.error('You can order products only from one selected store!');
       return;
     }
+
     const product = order.find(item => item.id === id);
 
     if (!product) {
