@@ -26,11 +26,6 @@ export const ListItem = styled.li`
     scale: 1.02;
     box-shadow: 0 0 7px 2px #a8a6a5;
   }
-
-  &:active {
-    color: #ffffff;
-    background-color: #84a17d;
-  }
 `;
 
 export const Text = styled.p`

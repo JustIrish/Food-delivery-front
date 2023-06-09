@@ -4,6 +4,8 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  height: 77vh;
+  overflow: auto;
 `;
 
 export const ProductsItem = styled.li`
