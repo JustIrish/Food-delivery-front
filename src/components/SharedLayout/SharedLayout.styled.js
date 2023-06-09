@@ -14,7 +14,3 @@ export const Header = styled.header`
   padding: 16px;
   background-color: #153c3c;
 `;
-
-export const Main = styled.main`
-  padding: 100px 16px;
-`;

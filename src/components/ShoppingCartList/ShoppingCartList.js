@@ -39,7 +39,7 @@ const ShoppingCartList = ({ getData }) => {
 
   const handleRemoveProduct = id => {
     const filteredOrder = order.filter(item => item.id !== id);
-    console.log(filteredOrder);
+
     saveToLocalStorage('order', filteredOrder);
     setOrder(filteredOrder);
   };

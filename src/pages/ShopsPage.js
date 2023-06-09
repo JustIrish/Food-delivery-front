@@ -5,7 +5,7 @@ import ShopsList from 'components/ShopsList/ShopsList';
 import ProductsList from 'components/ProductsList/ProductsList';
 
 import { Wrapper } from './Pages.styled';
-import { Loader } from 'components/Loader/Loader';
+import Spinner from 'components/Spinner/Spinner';
 
 const ShopsPage = () => {
   const [shops, setShops] = useState([]);
@@ -27,12 +27,16 @@ const ShopsPage = () => {
   };
 
   return (
-    <>
+   
       <Wrapper>
-        {isLoading ? (
-          <Loader />
+        {isLoading && shops.length < 0 ? (
+          <Spinner />
         ) : (
-          <ShopsList shopsArr={shops} onClick={selectShopHandler} />
+          <ShopsList
+            shopsArr={shops}
+            onClick={selectShopHandler}
+            selectedShop={selectedShop}
+          />
         )}
 
         {selectedProducts.length > 0 && (
@@ -42,7 +46,7 @@ const ShopsPage = () => {
           />
         )}
       </Wrapper>
-    </>
+  
   );
 };
 

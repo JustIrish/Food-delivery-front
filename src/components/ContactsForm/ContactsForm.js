@@ -15,7 +15,7 @@ import {
   InputStyled,
   BtnStyled,
 } from './ContactsForm.styled';
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 
 const ContactsForm = ({ totalCost }) => {
   const [isLoading, setIsLoading] = useState(false);
