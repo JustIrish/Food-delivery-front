@@ -1,32 +1,22 @@
+import { HomeTextWrap, Title, Text, Link } from './Pages.styled';
+
 const HomePage = () => {
   return (
     <div
       style={{
         backgroundColor: '#ADC9A6',
         height: '100vh',
-        paddingTop: '300px',
-        textAlign: 'center',
+        paddingTop: '200px',
       }}
     >
-      <h1
-        style={{
-          fontWeight: ' 600',
-          color: '#172426',
-          paddingBottom: '30px',
-        }}
-      >
-        Welcome to our website!
-      </h1>
-      <p
-        style={{
-          fontSize: '20px',
-          fontWeight: ' 500',
-          color: '#172426',
-        }}
-      >
-        Here you have the opportunity to order food from your favorite stores!
-        And also review your order history.
-      </p>
+      <HomeTextWrap>
+        <Title>Welcome to our website!</Title>
+        <Text>
+          <Link to="/shops">Here </Link> you have the opportunity to order food
+          from your favorite stores! And also review your
+          <Link to="/history"> order history.</Link>
+        </Text>
+      </HomeTextWrap>
     </div>
   );
 };
