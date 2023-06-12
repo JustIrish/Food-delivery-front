@@ -5,6 +5,7 @@
 ![Interface](./src/images/screen-food.jpg)
 
 ## <ul>Main functionality:</ul>
+
 <li>You choose the products you like and they are added to the shopping cart</li>
 <li>In the shopping cart, you can change the quantity or remove a product from the cart</li>
 <li>Fill in your contacts in the form and send the order </li>
@@ -17,8 +18,9 @@
 - Axios
 - Styled Components
 - Formik and yup for form validation
-- React-hot-toast for cool toast notifications
+- React-hot-toast for toast notifications
 
 ## Backend Repository
 
-You can also check out the backend repository [here](https://github.com/JustIrish/Food-delivery-back).
+You can also check out the backend repository
+[here](https://github.com/JustIrish/Food-delivery-back).
