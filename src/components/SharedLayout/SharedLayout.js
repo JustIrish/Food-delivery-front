@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Layout, Header } from './SharedLayout.styled';
 import NavBar from 'components/NavBar/NavBar';
+import Footer from 'components/Footer/Footer';
 import Spinner from 'components/Spinner/Spinner';
 
 const SharedLayout = () => {
@@ -18,6 +19,7 @@ const SharedLayout = () => {
           <Outlet />
         </main>
       </Suspense>
+      <Footer />
       <GlobalStyle />
       <Toaster position="top-center" reverseOrder={false} />
     </Layout>
